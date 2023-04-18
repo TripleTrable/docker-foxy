@@ -35,5 +35,6 @@ To start the container one of the following methods can be used:
 
 To set the ROS ID directly use:
 ```
-./dev/bootstrap.sh --rid <ROS_ID>
+./dev/bootstrap.sh --rid=<ROS_ID>
 ```
+Optionally use --name=<Container name> to name the container.
