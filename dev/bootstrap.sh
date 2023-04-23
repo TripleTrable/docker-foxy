@@ -27,6 +27,8 @@ while [ -n "$1" ] ; do
     shift
 done
 
+docker pull ghcr.io/tripletrable/docker-ros:foxy
+
 docker run -it \
     -v $(pwd)/packages:/home/foxy/packages \
     ${ROS_ID_ENV}\
