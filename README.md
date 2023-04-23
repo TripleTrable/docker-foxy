@@ -7,6 +7,8 @@ _This is not a repository designed for reproducible builds._
 
 The container maps the whole home from the container to the host which includes the build and install directory.
 
+The password for the user foxy is 'foxy'.
+
 
 # Usage
 ## prerequisites
@@ -38,3 +40,5 @@ To set the ROS ID directly use:
 ./dev/bootstrap.sh --rid=<ROS_ID>
 ```
 Optionally use --name=<Container name> to name the container.
+
+
