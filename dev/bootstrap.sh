@@ -30,7 +30,7 @@ done
 docker pull ghcr.io/tripletrable/docker-ros:foxy
 
 docker run -it \
-    -v $(pwd)/packages:/home/foxy/packages \
+    -v $(pwd)/packages:/home/foxy/src \
     ${ROS_ID_ENV}\
     ${CONTAINER_NAME} \
     ghcr.io/tripletrable/docker-ros:foxy \
