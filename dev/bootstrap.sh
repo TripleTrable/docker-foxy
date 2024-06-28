@@ -9,6 +9,7 @@ set -o pipefail
 usage() {
     echo " --rid=<ROS_ID>   start container with the given ROS_ID env set"
     echo " --name=<name>    assign a name to the container"
+    echo " --update         Pull update from github"
 }
 
 while [ -n "$1" ] ; do
@@ -19,6 +20,10 @@ while [ -n "$1" ] ; do
         --rid=*)
             ROS_ID_ENV="-e ROS_DOMAIN_ID=$(echo $1 | cut -f 2 -d '=')"
             ;;
+        --update)
+            DOCKER_PULL="1"
+            ;;
+
         *)
             usage
             exit 1
@@ -27,10 +32,12 @@ while [ -n "$1" ] ; do
     shift
 done
 
-docker pull ghcr.io/tripletrable/docker-ros:foxy
+[ -n "${DOCKER_PULL}" ] && docker pull ghcr.io/tripletrable/docker-ros:foxy
 
 docker run -it \
     -v $(pwd)/packages:/home/foxy/src \
     ${ROS_ID_ENV}\
     ${CONTAINER_NAME} \
+    --network host \
+    --ipc host \
     ghcr.io/tripletrable/docker-ros:foxy \

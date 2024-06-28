@@ -17,7 +17,7 @@ The password for the user foxy is 'foxy'.
 - root access for the subuid/subgid changes
 
 
-## Onetime setup
+## Onetime setup (only when not already setup)
 For the docker container to map with the correct UID and GID the /etc/subuid and /etc/subgid files as well as the /etc/docker/daemon.json file need to be edited.
 These changes are made by running:
 
